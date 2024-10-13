@@ -1,0 +1,51 @@
+meta {
+  name: update task
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{path}}/tasks/670c2f51052ec44b0283144e
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOiI2NzBjMmQzMGMwZGZlOWI3Y2YzZGNmY2EiLCJpYXQiOjE3Mjg4NTE4MjAsImV4cCI6MTcyODg1NTQyMH0.rvly6HUQyIfoWbr_LonlO_wzSe_4MDJ7SW-hIdv9fos
+}
+
+body:json {
+  {
+    "title": "Updated Task Title",
+    "description": "Updated task description",
+    "completed": true
+  }
+}
+
+docs {
+  ## Tasks
+  
+  ### PUT `/tasks/:id`
+  
+  Update an existing task.
+  
+  #### Request
+  - **Method:** PUT
+  - **URL:** `/tasks/{taskId}` (replace `{taskId}` with the actual task ID)
+  
+  #### Headers
+  ```json
+  {
+    "Authorization": "Bearer <your-jwt-token>"
+  }
+  ```
+  
+  #### Body
+  ```json
+  {
+    "title": "Updated Task Title",
+    "description": "Updated task description",
+    "status": "completed"
+  }
+  ```
+}

@@ -1,0 +1,38 @@
+meta {
+  name: login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{path}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "user@example.com",
+    "password": "yourpassword"
+  }
+}
+
+docs {
+  ## Authentication
+  
+  ### POST `/auth/login`
+  
+  Log in an existing user.
+  
+  #### Request
+  - **Method:** POST
+  - **URL:** `/auth/login`
+  
+  #### Body
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "yourpassword"
+  }
+  ```
+}

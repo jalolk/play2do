@@ -1,0 +1,34 @@
+meta {
+  name: get tasks
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{path}}/tasks
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOiI2NzBjMmQzMGMwZGZlOWI3Y2YzZGNmY2EiLCJpYXQiOjE3Mjg4NTE0NTUsImV4cCI6MTcyODg1NTA1NX0.Gl46-5ItNzozyXKpKJLumndpbu7cjA238CRVQs6d0Jo
+}
+
+docs {
+  ## Tasks
+  
+  ### GET `/tasks`
+  
+  Retrieve all tasks for the authenticated user.
+  
+  #### Request
+  - **Method:** GET
+  - **URL:** `/tasks`
+  
+  #### Headers
+  ```json
+  {
+    "Authorization": "Bearer <your-jwt-token>"
+  }
+  ```
+}
