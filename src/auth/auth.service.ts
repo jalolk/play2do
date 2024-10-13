@@ -1,8 +1,4 @@
-import {
-  ConflictException,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, ConflictException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
@@ -14,9 +10,9 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(email: string, pass: string): Promise<any> {
+  async validateUser(email: string, password: string): Promise<any> {
     const user = await this.prisma.user.findUnique({ where: { email } });
-    if (user && (await bcrypt.compare(pass, user.password))) {
+    if (user && (await bcrypt.compare(password, user.password))) {
       const { password, ...result } = user;
       return result;
     }
@@ -31,22 +27,26 @@ export class AuthService {
   }
 
   async register(email: string, password: string, name: string) {
+    const existingUser = await this.prisma.user.findUnique({
+      where: { email },
+    });
+    if (existingUser) {
+      throw new ConflictException('User already exists');
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    await this.prisma.user.findUnique({ where: { email } }).then((user) => {
-      if (user) {
-        throw new ConflictException('User already exists');
-      }
-    });
-
-    const user = await this.prisma.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-        name,
-      },
-    });
-    const { password: _, ...result } = user;
-    return result;
+    try {
+      const user = await this.prisma.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          name,
+        },
+      });
+      const { password: _, ...result } = user;
+      return result;
+    } catch (error) {
+      throw new Error('Database error');
+    }
   }
 }
