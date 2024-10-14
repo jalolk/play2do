@@ -64,8 +64,7 @@ To experience the extensive testing suite:
 
 ```
 play2do/
-├── backend/                 # NestJS backend
-│   ├── src/                 # Services covered with unit tests
+├── src/                     # Backend covered with unit tests
 ├── frontend/                # React frontend
 │   ├── src/                 # Components covered with unit and integration tests
 ├── e2e/                     # Playwright E2E tests
@@ -78,8 +77,9 @@ play2do/
 1. Clone the repository
 2. Install dependencies: `yarn install`
 3. Set up your MongoDB instance and update the connection string
-4. Run the application: `yarn start`
-5. Explore the various test suites as described above
+4. Run the Backend: `yarn start`
+5. Run the Frontend: `yarn run dev`
+6. Explore the various test suites as described above
 
 ## 🤝 Contributing
 
