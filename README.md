@@ -1,85 +1,95 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🎮 Play2do: QA-Focused Todo Application
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<div align="center">
+<img src="https://skillicons.dev/icons?i=nestjs,react,vite,tailwind" />
+<img src="https://github.com/tandpfun/skill-icons/raw/main/icons/MongoDB.svg" width="48" height="48" alt="MongoDB" />
+<img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Prisma.svg" width="48" height="48" alt="Prisma" />
+<img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Jest.svg" width="48" height="48" alt="Jest" />
+<img src="https://github.com/microsoft/playwright/blob/main/packages/web/src/assets/playwright-logo.svg" width="48" height="48" alt="Playwright" />
+</div>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🔍 Project Overview
 
-## Description
+Play2do is an advanced Task Manager application designed to showcase best practices in Quality Assurance (QA) automation and comprehensive testing strategies. While it provides full todo list functionality, the primary goal is to demonstrate how to implement and maintain robust testing across various levels of a modern web application.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Tech Stack
 
-## Project setup
+### Backend
+- 🪺 NestJS
+- 🍃 MongoDB
+- 🔷 Prisma ORM
 
-```bash
-$ yarn install
+### Frontend
+- ⚛️ React
+- ⚡ Vite
+- 🎨 Shadcn UI
+- 🌬️ TailwindCSS
+
+## 🧪 Testing Framework
+
+Play2do incorporates multiple testing methodologies to ensure code quality and reliability:
+
+1. 🔬 **Unit Tests**: Using Jest for both backend and frontend
+2. 🔗 **Integration Tests**: Ensuring smooth interaction between components
+3. 🌐 **End-to-End (E2E) Tests**: Utilizing Playwright for comprehensive application flow testing
+4. 🔌 **API Tests**: Leveraging Bruno for thorough API endpoint testing
+
+## ✨ Key Features
+
+- ✅ Full-featured Todo application functionality
+- 🛡️ Comprehensive test coverage across all application layers
+- 💻 Demonstration of modern web development best practices
+- 🚀 Showcase of QA automation techniques in a real-world scenario
+
+## 🏃‍♂️ Running the Tests
+
+To experience the extensive testing suite:
+
+- 🧪 **Unit and Integration Tests**: 
+  ```
+  yarn test
+  ```
+  This command runs Jest tests for both backend and frontend components.
+
+- 🌐 **End-to-End Tests**:
+  ```
+  yarn e2e test
+  ```
+  Executes Playwright tests to simulate real user interactions.
+
+- 🔌 **API Tests**:
+  Navigate to the `bruno API` folder in the project directory. Here you'll find a collection of API tests implemented using Bruno.
+
+## 📁 Project Structure
+
+```
+play2do/
+├── backend/                 # NestJS backend
+│   ├── src/                 # Services covered with unit tests
+├── frontend/                # React frontend
+│   ├── src/                 # Components covered with unit and integration tests
+├── e2e/                     # Playwright E2E tests
+├── bruno API/               # Bruno API tests
+└── package.json
 ```
 
-## Compile and run the project
+## 🚀 Getting Started
 
-```bash
-# development
-$ yarn run start
+1. Clone the repository
+2. Install dependencies: `yarn install`
+3. Set up your MongoDB instance and update the connection string
+4. Run the application: `yarn start`
+5. Explore the various test suites as described above
 
-# watch mode
-$ yarn run start:dev
+## 🤝 Contributing
 
-# production mode
-$ yarn run start:prod
-```
+We welcome contributions, especially those that enhance our testing methodologies or expand test coverage. Please refer to our contributing guidelines for more information.
 
-## Run tests
+## 📚 Learn More
 
-```bash
-# unit tests
-$ yarn run test
+This project serves as an excellent resource for:
+- 🧑‍🔬 QA engineers looking to expand their automation skills
+- 👨‍💻 Developers aiming to implement comprehensive testing strategies
+- 🎓 Anyone interested in seeing how different testing methodologies can be integrated into a single project
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Dive into the code, run the tests, and elevate your QA automation skills with Play2do!
