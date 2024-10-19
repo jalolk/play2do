@@ -41,8 +41,6 @@ test.describe.serial('Task', () => {
   test('should allow me to delete a task', async ({ page }) => {
     const deleteBtns = await page.getByRole('button', { name: 'Delete' }).all();
 
-    console.log(deleteBtns);
-
     for (let deleteBtn of deleteBtns) {
       await deleteBtn.click();
     }

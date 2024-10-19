@@ -8,22 +8,11 @@ on:
 
 jobs:
   test:
+    name: Run Playwright Tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }
-      JWT_SECRET: ${{ secrets.JWT_SECRET }
 
     steps:
-      - name: display
-        run: |
-          echo "$JWT_SECRET" |  awk '$1=$1' FS= OFS=" "
-
-          touch .env
-          echo JWT_SECRET = $JWT_SECRET >> .env
-
-          cat .env | awk '$1=$1' FS= OFS=" "
-
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -48,12 +37,12 @@ jobs:
         working-directory: ./frontend
 
       # Install 'wait-on' to wait for both backend and frontend to be available
-      - name: Install wait-on
-        run: npm install -g wait-on
+      # - name: Install wait-on
+      #   run: npm install -g wait-on
 
-      # Wait for both backend (assuming localhost:3000) and frontend (localhost:3001) to be available
-      - name: Wait for backend and frontend to be ready
-        run: wait-on http://localhost:3000 http://localhost:5173
+      # # Wait for both backend (assuming localhost:3000) and frontend (localhost:5173) to be available
+      # - name: Wait for backend and frontend to be ready
+      #   run: wait-on http://localhost:3000 http://localhost:5173
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
