@@ -20,7 +20,7 @@ body:json {
 
 script:pre-request {
   const { faker } = require("@faker-js/faker");
-  const name = faker.name.fullName();
+  const name = faker.person.fullName();
   const email = faker.internet.email();
   const password = faker.internet.password();
   

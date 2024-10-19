@@ -1,0 +1,42 @@
+name: 'Setup Environment'
+description: 'Sets up the environment for running tests'
+
+inputs:
+  node-version:
+    description: 'Node.js version to use'
+    required: false
+    default: 'lts/*'
+  database-url:
+    description: 'Database URL for backend'
+    required: true
+  jwt-secret:
+    description: 'JWT secret for backend'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Install BE dependencies
+      run: yarn install
+      shell: bash
+
+    - name: Install FE dependencies
+      run: yarn install
+      working-directory: ./frontend
+      shell: bash
+
+    - name: Start backend
+      run: yarn start &
+      env:
+        DATABASE_URL: ${{ inputs.database-url }}
+        JWT_SECRET: ${{ inputs.jwt-secret }}
+      shell: bash
+
+    - name: Start frontend
+      run: yarn run dev &
+      working-directory: ./frontend
+      shell: bash
