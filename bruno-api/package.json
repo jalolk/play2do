@@ -1,0 +1,7 @@
+{
+  "name": "backend-api-collection",
+  "version": "1",
+  "dependencies": {
+    "@faker-js/faker": "8.3.1"
+  }
+}

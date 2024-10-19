@@ -18,6 +18,38 @@ body:json {
   }
 }
 
+script:pre-request {
+  const { faker } = require("@faker-js/faker");
+  const name = faker.name.fullName();
+  const email = faker.internet.email();
+  const password = faker.internet.password();
+  
+  bru.setVar("email", email)
+  bru.setVar("password", password)
+  
+  req.setBody({
+    name,
+    email,
+    password: password
+  })
+}
+
+script:post-response {
+  bru.setVar("access_token", res.body.access_token)
+}
+
+tests {
+  test("should be able to login", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(201);
+  });
+  
+  test("should recieve a token", function() {
+    const data = res.getBody();
+    expect(data.access_token).to.be.a('string');
+  });
+}
+
 docs {
   ## Authentication
   

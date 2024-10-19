@@ -5,13 +5,18 @@ meta {
 }
 
 get {
-  url: {{path}}/tasks/670c2f51052ec44b0283144e
+  url: {{path}}/tasks/{{id}}
   body: none
   auth: bearer
 }
 
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOiI2NzBjMmQzMGMwZGZlOWI3Y2YzZGNmY2EiLCJpYXQiOjE3Mjg4NTE4MjAsImV4cCI6MTcyODg1NTQyMH0.rvly6HUQyIfoWbr_LonlO_wzSe_4MDJ7SW-hIdv9fos
+  token: {{access_token}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.id: eq {{id}}
 }
 
 docs {

@@ -6,15 +6,35 @@ meta {
 
 post {
   url: {{path}}/auth/login
-  body: json
+  body: formUrlEncoded
   auth: none
 }
 
 body:json {
   {
-    "email": "user@example.com",
-    "password": "yourpassword"
+    "email": {
+      {email
+      }
+    },
+    "password": "password"
   }
+}
+
+body:form-urlencoded {
+  email: {{email}}
+  password: {{password}}
+}
+
+tests {
+  test("should be able to login", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(200);
+  });
+   
+  test("should receive the token", function() {
+    const data = res.getBody();
+    expect(data.access_token).to.be.a('string');
+  });
 }
 
 docs {

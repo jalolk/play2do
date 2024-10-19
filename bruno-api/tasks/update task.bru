@@ -5,21 +5,36 @@ meta {
 }
 
 put {
-  url: {{path}}/tasks/670c2f51052ec44b0283144e
-  body: json
+  url: {{path}}/tasks/{{id}}
+  body: formUrlEncoded
   auth: bearer
 }
 
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOiI2NzBjMmQzMGMwZGZlOWI3Y2YzZGNmY2EiLCJpYXQiOjE3Mjg4NTE4MjAsImV4cCI6MTcyODg1NTQyMH0.rvly6HUQyIfoWbr_LonlO_wzSe_4MDJ7SW-hIdv9fos
+  token: {{access_token}}
 }
 
 body:json {
   {
-    "title": "Updated Task Title",
-    "description": "Updated task description",
+    "title": {{new_title}},
+    "description": {{new_description}},
     "completed": true
   }
+}
+
+body:form-urlencoded {
+  title: {{new_title}}
+  description: {{new_description}}
+}
+
+vars:pre-request {
+  new_title: Updated Task Title
+  new_description: Updated task description
+}
+
+assert {
+  res.body.title: eq {{new_title}}
+  res.body.description: eq {{new_description}}
 }
 
 docs {
