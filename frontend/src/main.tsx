@@ -4,7 +4,7 @@ import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/Login/index.tsx';
 import Dashboard from './pages/Dashboard/index.tsx';
-import RegisterPage from './pages/RegisterPage/index.tsx';
+import RegisterPage from './pages/Register/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <Router>
