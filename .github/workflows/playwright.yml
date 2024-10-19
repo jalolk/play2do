@@ -10,7 +10,20 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }
+      JWT_SECRET: ${{ secrets.JWT_SECRET }
+
     steps:
+      - name: display
+        run: |
+          echo "$JWT_SECRET" |  awk '$1=$1' FS= OFS=" "
+
+          touch .env
+          echo JWT_SECRET = $JWT_SECRET >> .env
+
+          cat .env | awk '$1=$1' FS= OFS=" "
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
