@@ -53,7 +53,7 @@ To experience the extensive testing suite:
 
 - 🌐 **End-to-End Tests**:
   ```
-  yarn e2e test
+  test:e2e:playwright
   ```
   Executes Playwright tests to simulate real user interactions.
 
@@ -67,7 +67,7 @@ play2do/
 ├── src/                     # Backend covered with unit tests
 ├── frontend/                # React frontend
 │   ├── src/                 # Components covered with unit and integration tests
-├── e2e/                     # Playwright E2E tests
+├── test/e2e/                # Playwright E2E tests
 ├── bruno API/               # Bruno API tests
 └── package.json
 ```
